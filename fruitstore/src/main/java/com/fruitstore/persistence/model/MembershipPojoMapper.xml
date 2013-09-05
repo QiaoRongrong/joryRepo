@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="membership" >
+  <resultMap id="BaseResultMap" type="model.MembershipPojo" >
+    <id column="level" property="level" jdbcType="INTEGER" />
+    <result column="discountRate" property="discountrate" jdbcType="REAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    level, discountRate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from membership
+    where level = #{level,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from membership
+    where level = #{level,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="model.MembershipPojo" >
+    insert into membership (level, discountRate)
+    values (#{level,jdbcType=INTEGER}, #{discountrate,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="model.MembershipPojo" >
+    insert into membership
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="level != null" >
+        level,
+      </if>
+      <if test="discountrate != null" >
+        discountRate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="level != null" >
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="discountrate != null" >
+        #{discountrate,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+</mapper>

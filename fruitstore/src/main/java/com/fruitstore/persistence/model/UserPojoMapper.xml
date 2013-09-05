@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="user" >
+  <resultMap id="BaseResultMap" type="model.UserPojo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="VARCHAR" />
+    <result column="phoneNum" property="phonenum" jdbcType="VARCHAR" />
+    <result column="pwd" property="pwd" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="addr1" property="addr1" jdbcType="VARCHAR" />
+    <result column="addr2" property="addr2" jdbcType="VARCHAR" />
+    <result column="registerDate" property="registerdate" jdbcType="DATE" />
+    <result column="lastShoppingDate" property="lastshoppingdate" jdbcType="DATE" />
+    <result column="lastLoginDate" property="lastlogindate" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, gender, phoneNum, pwd, email, addr1, addr2, registerDate, lastShoppingDate, 
+    lastLoginDate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="model.UserPojo" >
+    insert into user (id, name, gender, 
+      phoneNum, pwd, email, 
+      addr1, addr2, registerDate, 
+      lastShoppingDate, lastLoginDate)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, 
+      #{phonenum,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{addr1,jdbcType=VARCHAR}, #{addr2,jdbcType=VARCHAR}, #{registerdate,jdbcType=DATE}, 
+      #{lastshoppingdate,jdbcType=DATE}, #{lastlogindate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="model.UserPojo" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="phonenum != null" >
+        phoneNum,
+      </if>
+      <if test="pwd != null" >
+        pwd,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="addr1 != null" >
+        addr1,
+      </if>
+      <if test="addr2 != null" >
+        addr2,
+      </if>
+      <if test="registerdate != null" >
+        registerDate,
+      </if>
+      <if test="lastshoppingdate != null" >
+        lastShoppingDate,
+      </if>
+      <if test="lastlogindate != null" >
+        lastLoginDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenum != null" >
+        #{phonenum,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd != null" >
+        #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="addr1 != null" >
+        #{addr1,jdbcType=VARCHAR},
+      </if>
+      <if test="addr2 != null" >
+        #{addr2,jdbcType=VARCHAR},
+      </if>
+      <if test="registerdate != null" >
+        #{registerdate,jdbcType=DATE},
+      </if>
+      <if test="lastshoppingdate != null" >
+        #{lastshoppingdate,jdbcType=DATE},
+      </if>
+      <if test="lastlogindate != null" >
+        #{lastlogindate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+</mapper>

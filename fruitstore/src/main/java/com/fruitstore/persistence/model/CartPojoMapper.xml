@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cart" >
+  <resultMap id="BaseResultMap" type="model.CartPojo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="amount" property="amount" jdbcType="VARCHAR" />
+    <result column="goodsIds" property="goodsids" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="model.CartPojoWithBLOBs" extends="BaseResultMap" >
+    <result column="price" property="price" jdbcType="LONGVARCHAR" />
+    <result column="carriageFee" property="carriagefee" jdbcType="LONGVARCHAR" />
+    <result column="totalPrice" property="totalprice" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, amount, goodsIds
+  </sql>
+  <sql id="Blob_Column_List" >
+    price, carriageFee, totalPrice
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from cart
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cart
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="model.CartPojoWithBLOBs" >
+    insert into cart (id, amount, goodsIds, 
+      price, carriageFee, totalPrice
+      )
+    values (#{id,jdbcType=INTEGER}, #{amount,jdbcType=VARCHAR}, #{goodsids,jdbcType=VARCHAR}, 
+      #{price,jdbcType=LONGVARCHAR}, #{carriagefee,jdbcType=LONGVARCHAR}, #{totalprice,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="model.CartPojoWithBLOBs" >
+    insert into cart
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+      <if test="goodsids != null" >
+        goodsIds,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="carriagefee != null" >
+        carriageFee,
+      </if>
+      <if test="totalprice != null" >
+        totalPrice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsids != null" >
+        #{goodsids,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="carriagefee != null" >
+        #{carriagefee,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="totalprice != null" >
+        #{totalprice,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
