@@ -1,6 +1,6 @@
-package model;
+package com.fruitstore.persistence.model;
 
-public class ProductionPojoWithBLOBs extends ProductionPojo {
+public class ProductionWithBLOBs extends Production {
     private String pricebypiece;
 
     private String pricebyweight;

@@ -1,8 +1,8 @@
-package model;
+package com.fruitstore.persistence.model;
 
 import java.util.Date;
 
-public class orderPojo {
+public class Order {
     private Integer id;
 
     private String produnctionids;

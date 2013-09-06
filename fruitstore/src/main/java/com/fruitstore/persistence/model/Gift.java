@@ -1,13 +1,13 @@
-package model;
+package com.fruitstore.persistence.model;
 
-public class ProductionPojo {
+public class Gift {
     private Integer id;
 
     private String name;
 
     private String desc;
 
-    private Boolean stock;
+    private byte[] pic;
 
     public Integer getId() {
         return id;
@@ -33,11 +33,11 @@ public class ProductionPojo {
         this.desc = desc == null ? null : desc.trim();
     }
 
-    public Boolean getStock() {
-        return stock;
+    public byte[] getPic() {
+        return pic;
     }
 
-    public void setStock(Boolean stock) {
-        this.stock = stock;
+    public void setPic(byte[] pic) {
+        this.pic = pic;
     }
 }

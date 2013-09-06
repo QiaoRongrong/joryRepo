@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="gift" >
-  <resultMap id="BaseResultMap" type="model.GiftPojo" >
+  <resultMap id="BaseResultMap" type="com.fruitstore.persistence.model.Gift" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="desc" property="desc" jdbcType="VARCHAR" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="model.GiftPojo" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.fruitstore.persistence.model.Gift" extends="BaseResultMap" >
     <result column="pic" property="pic" jdbcType="LONGVARBINARY" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -27,13 +27,13 @@
     delete from gift
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="model.GiftPojo" >
+  <insert id="insert" parameterType="com.fruitstore.persistence.model.Gift" >
     insert into gift (id, name, desc, 
       pic)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{desc,jdbcType=VARCHAR}, 
       #{pic,jdbcType=LONGVARBINARY})
   </insert>
-  <insert id="insertSelective" parameterType="model.GiftPojo" >
+  <insert id="insertSelective" parameterType="com.fruitstore.persistence.model.Gift" >
     insert into gift
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >

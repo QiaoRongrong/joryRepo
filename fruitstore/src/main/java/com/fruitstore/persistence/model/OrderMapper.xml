@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="order" >
-  <resultMap id="BaseResultMap" type="model.orderPojo" >
+  <resultMap id="BaseResultMap" type="com.fruitstore.persistence.model.OrderPojo" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="produnctionIds" property="produnctionids" jdbcType="VARCHAR" />
     <result column="amount" property="amount" jdbcType="VARCHAR" />
@@ -29,7 +29,7 @@
     delete from order
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="model.orderPojo" >
+  <insert id="insert" parameterType="com.fruitstore.persistence.model.OrderPojo" >
     insert into order (id, produnctionIds, amount, 
       status, phoneNum, addr, 
       createDate, deliveryDate, reveiveDate, 
@@ -41,7 +41,7 @@
       #{carriagefee,jdbcType=VARCHAR}, #{totalprice,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="model.orderPojo" >
+  <insert id="insertSelective" parameterType="com.fruitstore.persistence.model.OrderPojo" >
     insert into order
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >

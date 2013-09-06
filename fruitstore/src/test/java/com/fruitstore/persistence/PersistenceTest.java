@@ -35,7 +35,7 @@ public class PersistenceTest {
 	
 	@Test
 	public void testAddAccount() {
-		Account account = new Account("testUserTran", "123456", "customer");
+		Account account = new Account("testUser2", "123456", "customer");
 		account.setCity("Shanghai");
 		
 		accountService.insertAccount(account);

@@ -1,5 +1,5 @@
--- drop table signon;
--- drop table account;
+-- drop table signon if exists;
+-- drop table account if exists;
 
 create database fruitstore;
 use fruitstore;

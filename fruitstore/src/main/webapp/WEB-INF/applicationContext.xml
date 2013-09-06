@@ -36,16 +36,11 @@
         <property name="minIdle" value="${jdbc.minIdle}"></property>  
         <property name="maxIdle" value="${jdbc.maxIdle}"></property>  
         <property name="maxWait" value="${jdbc.maxWait}"></property>  
-        <property name="maxActive" value="${jdbc.maxActive}"></property>  
-        <property name="initialSize" value="${jdbc.initialSize}"></property>  
+        <property name="maxActive" value="${jdbc.maxActive}"></property>
+        <!-- 
+        <property name="initialSize" value="${jdbc.initialSize}"></property>   -->
     </bean>  
-    
-   <!-- in-memory database and a datasource 
-    <jdbc:embedded-database id="dataSource">
-        <jdbc:script location="classpath:database/jpetstore-hsqldb-schema.sql"/>
-        <jdbc:script location="classpath:database/jpetstore-hsqldb-dataload.sql"/>
-    </jdbc:embedded-database>
--->
+
 	<!-- db configuration file location -->  
     <context:property-placeholder location="classpath:jdbc.properties" />  
     

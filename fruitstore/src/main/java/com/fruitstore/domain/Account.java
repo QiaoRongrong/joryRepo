@@ -2,7 +2,11 @@ package com.fruitstore.domain;
 
 import java.io.Serializable;
 
-
+/**
+ * It is come from mybatis JPet Store as a code sample.
+ * @author Jory 
+ *
+ */
 public class Account implements Serializable {
 
 	private static final long serialVersionUID = 8751282105532159742L;

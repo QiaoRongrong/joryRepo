@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cart" >
-  <resultMap id="BaseResultMap" type="model.CartPojo" >
+  <resultMap id="BaseResultMap" type="com.fruitstore.persistence.model.Cart" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="amount" property="amount" jdbcType="VARCHAR" />
     <result column="goodsIds" property="goodsids" jdbcType="VARCHAR" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="model.CartPojoWithBLOBs" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.fruitstore.persistence.model.CartWithBLOBs" extends="BaseResultMap" >
     <result column="price" property="price" jdbcType="LONGVARCHAR" />
     <result column="carriageFee" property="carriagefee" jdbcType="LONGVARCHAR" />
     <result column="totalPrice" property="totalprice" jdbcType="LONGVARCHAR" />
@@ -29,7 +29,7 @@
     delete from cart
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="model.CartPojoWithBLOBs" >
+  <insert id="insert" parameterType="com.fruitstore.persistence.model.CartWithBLOBs" >
     insert into cart (id, amount, goodsIds, 
       price, carriageFee, totalPrice
       )
@@ -37,7 +37,7 @@
       #{price,jdbcType=LONGVARCHAR}, #{carriagefee,jdbcType=LONGVARCHAR}, #{totalprice,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="model.CartPojoWithBLOBs" >
+  <insert id="insertSelective" parameterType="com.fruitstore.persistence.model.CartWithBLOBs" >
     insert into cart
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >

@@ -1,6 +1,6 @@
-package model;
+package com.fruitstore.persistence.model;
 
-public class CartPojo {
+public class Cart {
     private Integer id;
 
     private String amount;

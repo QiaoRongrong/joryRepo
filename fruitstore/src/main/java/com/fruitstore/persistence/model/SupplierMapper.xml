@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="supplier" >
-  <resultMap id="BaseResultMap" type="model.SupplierPojo" >
+  <resultMap id="BaseResultMap" type="com.fruitstore.persistence.model.Supplier" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="addr" property="addr" jdbcType="VARCHAR" />
@@ -9,7 +9,7 @@
     <result column="review" property="review" jdbcType="VARCHAR" />
     <result column="rating" property="rating" jdbcType="TINYINT" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="model.SupplierPojo" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.fruitstore.persistence.model.Supplier" extends="BaseResultMap" >
     <result column="pic" property="pic" jdbcType="LONGVARBINARY" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -30,7 +30,7 @@
     delete from supplier
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="model.SupplierPojo" >
+  <insert id="insert" parameterType="com.fruitstore.persistence.model.Supplier" >
     insert into supplier (id, name, addr, 
       tel, review, rating, 
       pic)
@@ -38,7 +38,7 @@
       #{tel,jdbcType=VARCHAR}, #{review,jdbcType=VARCHAR}, #{rating,jdbcType=TINYINT}, 
       #{pic,jdbcType=LONGVARBINARY})
   </insert>
-  <insert id="insertSelective" parameterType="model.SupplierPojo" >
+  <insert id="insertSelective" parameterType="com.fruitstore.persistence.model.Supplier" >
     insert into supplier
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >

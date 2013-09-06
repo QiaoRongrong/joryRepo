@@ -1,6 +1,6 @@
-package model;
+package com.fruitstore.persistence.model;;
 
-public class CartPojoWithBLOBs extends CartPojo {
+public class CartWithBLOBs extends Cart {
     private String price;
 
     private String carriagefee;

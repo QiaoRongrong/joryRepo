@@ -1,6 +1,6 @@
-package model;
+package com.fruitstore.persistence.model;
 
-public class MembershipPojo {
+public class Membership {
     private Integer level;
 
     private Float discountrate;

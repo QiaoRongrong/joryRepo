@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="production" >
-  <resultMap id="BaseResultMap" type="model.ProductionPojo" >
+  <resultMap id="BaseResultMap" type="com.fruitstore.persistence.model.Production" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="desc" property="desc" jdbcType="VARCHAR" />
     <result column="stock" property="stock" jdbcType="BIT" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="model.ProductionPojoWithBLOBs" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.fruitstore.persistence.model.ProductionWithBLOBs" extends="BaseResultMap" >
     <result column="priceByPiece" property="pricebypiece" jdbcType="LONGVARCHAR" />
     <result column="priceByWeight" property="pricebyweight" jdbcType="LONGVARCHAR" />
     <result column="priceByBox" property="pricebybox" jdbcType="LONGVARCHAR" />
@@ -33,7 +33,7 @@
     delete from production
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="model.ProductionPojoWithBLOBs" >
+  <insert id="insert" parameterType="com.fruitstore.persistence.model.ProductionWithBLOBs" >
     insert into production (id, name, desc, 
       stock, priceByPiece, priceByWeight, 
       priceByBox, picOne, picTwo, 
@@ -43,7 +43,7 @@
       #{pricebybox,jdbcType=LONGVARCHAR}, #{picone,jdbcType=LONGVARBINARY}, #{pictwo,jdbcType=LONGVARBINARY}, 
       #{picthree,jdbcType=LONGVARBINARY})
   </insert>
-  <insert id="insertSelective" parameterType="model.ProductionPojoWithBLOBs" >
+  <insert id="insertSelective" parameterType="com.fruitstore.persistence.model.ProductionWithBLOBs" >
     insert into production
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >

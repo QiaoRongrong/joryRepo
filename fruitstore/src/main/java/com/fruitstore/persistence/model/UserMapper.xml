@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="user" >
-  <resultMap id="BaseResultMap" type="model.UserPojo" >
+  <resultMap id="BaseResultMap" type="com.fruitstore.persistence.model.User" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="gender" property="gender" jdbcType="VARCHAR" />
@@ -28,7 +28,7 @@
     delete from user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="model.UserPojo" >
+  <insert id="insert" parameterType="com.fruitstore.persistence.model.User" >
     insert into user (id, name, gender, 
       phoneNum, pwd, email, 
       addr1, addr2, registerDate, 
@@ -38,7 +38,7 @@
       #{addr1,jdbcType=VARCHAR}, #{addr2,jdbcType=VARCHAR}, #{registerdate,jdbcType=DATE}, 
       #{lastshoppingdate,jdbcType=DATE}, #{lastlogindate,jdbcType=DATE})
   </insert>
-  <insert id="insertSelective" parameterType="model.UserPojo" >
+  <insert id="insertSelective" parameterType="com.fruitstore.persistence.model.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >

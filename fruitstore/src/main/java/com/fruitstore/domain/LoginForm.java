@@ -1,5 +1,9 @@
 package com.fruitstore.domain;
-
+/**
+ * It is sample code.
+ * @author Jory 
+ *
+ */
 public class LoginForm {
 	
 	private String username;

@@ -1,6 +1,6 @@
-package model;
+package com.fruitstore.persistence.model;
 
-public class SupplierPojo {
+public class Supplier {
     private Integer id;
 
     private String name;

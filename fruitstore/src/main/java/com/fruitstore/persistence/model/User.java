@@ -1,8 +1,8 @@
-package model;
+package com.fruitstore.persistence.model;
 
 import java.util.Date;
 
-public class UserPojo {
+public class User {
     private Integer id;
 
     private String name;

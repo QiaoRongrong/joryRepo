@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="promotion" >
-  <resultMap id="BaseResultMap" type="model.PromotionPojo" >
+  <resultMap id="BaseResultMap" type="com.fruitstore.persistence.model.Promotion" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="gift_num" property="giftNum" jdbcType="INTEGER" />
@@ -22,7 +22,7 @@
     delete from promotion
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="model.PromotionPojo" >
+  <insert id="insert" parameterType="com.fruitstore.persistence.model.Promotion" >
     insert into promotion (id, name, gift_num, 
       conditions, discountRate, desc
       )
@@ -30,7 +30,7 @@
       #{conditions,jdbcType=VARCHAR}, #{discountrate,jdbcType=REAL}, #{desc,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="model.PromotionPojo" >
+  <insert id="insertSelective" parameterType="com.fruitstore.persistence.model.Promotion" >
     insert into promotion
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >

@@ -1,6 +1,6 @@
-package model;
+package com.fruitstore.persistence.model;
 
-public class PromotionPojo {
+public class Promotion {
     private Integer id;
 
     private String name;

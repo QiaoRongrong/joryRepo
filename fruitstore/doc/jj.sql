@@ -21,7 +21,7 @@ CREATE  TABLE IF NOT EXISTS `eshop`.`User` (
   `lastShoppingDate` DATE NULL ,
   `lastLoginDate` DATE NULL ,
   PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
+ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 
 -- -----------------------------------------------------
@@ -39,8 +39,8 @@ CREATE  TABLE IF NOT EXISTS `eshop`.`production` (
   `picThree` BLOB NULL ,
   `stock` TINYINT(1) NULL COMMENT ' /* comment truncated */ /*false: empty
 true; not empty*/' ,
-  PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
+  PRIMARY KEY (`id`) 
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 
 -- -----------------------------------------------------
@@ -54,7 +54,7 @@ CREATE  TABLE IF NOT EXISTS `eshop`.`cart` (
   `totalPrice` MEDIUMTEXT NULL ,
   `goodsIds` VARCHAR(45) NULL ,
   PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
+ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 
 -- -----------------------------------------------------
@@ -68,7 +68,7 @@ CREATE  TABLE IF NOT EXISTS `eshop`.`promotion` (
   `discountRate` FLOAT NULL ,
   `desc` VARCHAR(99) NULL ,
   PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
+ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 
 -- -----------------------------------------------------
@@ -92,7 +92,7 @@ CREATE  TABLE IF NOT EXISTS `eshop`.`order` (
   `totalPrice` VARCHAR(45) NULL ,
   `operator` VARCHAR(45) NULL ,
   PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
+ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 
 -- -----------------------------------------------------
@@ -104,7 +104,7 @@ CREATE  TABLE IF NOT EXISTS `eshop`.`gift` (
   `pic` BLOB NULL ,
   `desc` VARCHAR(99) NULL ,
   PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
+ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 
 -- -----------------------------------------------------
@@ -119,7 +119,7 @@ CREATE  TABLE IF NOT EXISTS `eshop`.`supplier` (
   `review` VARCHAR(45) NULL ,
   `rating` TINYINT NULL ,
   PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
+ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 
 -- -----------------------------------------------------
@@ -129,7 +129,7 @@ CREATE  TABLE IF NOT EXISTS `eshop`.`membership` (
   `level` INT NOT NULL ,
   `discountRate` FLOAT NULL ,
   PRIMARY KEY (`level`) )
-ENGINE = InnoDB;
+ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 USE `eshop` ;
 
