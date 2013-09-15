@@ -14,20 +14,21 @@ import com.fruitstore.domain.LoginForm;
 public class LoginController {
 	
 	@RequestMapping(value = "login")
-	public ModelAndView login(HttpServletRequest request,
+	public String login(HttpServletRequest request,
 			HttpServletResponse response, LoginForm loginForm) {
 		
-		String username = loginForm.getUsername();
+		System.out.println("Do nothing, =============login=========.");
 		
-		ModelAndView mv = new ModelAndView("loginSuccess", "loginForm",
-				"LOGIN SUCCESS, " + username);
-		return mv;
+//		String username = loginForm.getUsername();
+//		ModelAndView mv = new ModelAndView("loginSuccess", "loginForm",
+//				"LOGIN SUCCESS, " + username);
+		return "SignonForm.jsp";
 	}
 	
 	@RequestMapping(value = "goLogin", method = RequestMethod.GET)
 	public String goLogin(){
 		System.out.println("Do nothing, just go to another page.");
-		return "account/login";
+		return "account/SignonForm";
 	}
 	
 	
